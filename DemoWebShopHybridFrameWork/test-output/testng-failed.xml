@@ -6,9 +6,11 @@
     <classes>
       <class name="com.demowebshop.automation.testscript.TestScript_EndtoEndScript">
         <methods>
+          <include name="dataBaseConnector"/>
           <include name="extantReport"/>
           <include name="closeApp"/>
           <include name="systemScript"/>
+          <include name="closeReport"/>
           <include name="openApp"/>
         </methods>
       </class> <!-- com.demowebshop.automation.testscript.TestScript_EndtoEndScript -->

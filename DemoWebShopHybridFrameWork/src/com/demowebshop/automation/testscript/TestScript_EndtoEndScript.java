@@ -3,31 +3,32 @@ package com.demowebshop.automation.testscript;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.Status;
+
 import com.demowebshop.automation.generic.Base_Class;
 import com.demowebshop.automation.generic.GenericDataTypeConverter;
 import com.demowebshop.automation.generic.JavaScriptScrollActions;
 import com.demowebshop.automation.generic.SelectDropdown;
 import com.demowebshop.automation.pom.Pom_Class_SystemTestScript;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class TestScript_EndtoEndScript extends Base_Class
 {
 	@Test
-	public void systemScript() throws InterruptedException
+	public void systemScript(/*String userdata, String passdata*/) throws InterruptedException
 	{
 	Pom_Class_SystemTestScript pcm=new Pom_Class_SystemTestScript(driver);
 	pcm.loginLink().click();
 	pcm.emailTextfield().sendKeys(USERNAME);
 	pcm.passwordTextfield().sendKeys(PASSWORD);
 	pcm.loginButton().click();
-	String title = pcm.homeTitle().getText();
+	WebElement title = pcm.homeTitle();
 	if(title.equals(HOMEPAGETITLE))
 	{
-		test.log(Status.PASS, "Home page is displayed");
+		test.log(LogStatus.PASS, "Home page is displayed");
 	}
 	else
 	{
-		test.log(Status.FAIL, "Home page is not displayed");
+		test.log(LogStatus.FAIL, "Home page is not displayed");
 	}
 	pcm.books().click();
 	WebElement sortBy = pcm.sortByDrop();
@@ -76,9 +77,6 @@ public class TestScript_EndtoEndScript extends Base_Class
 		Thread.sleep(2000);
 		pcm.updateShoppingCart().click();
 	}
-	
-	
-	
-	
+	//https://github.com/ShreeDivyaKK/DEMO_WEB_SHOP.git
 	}
 }
