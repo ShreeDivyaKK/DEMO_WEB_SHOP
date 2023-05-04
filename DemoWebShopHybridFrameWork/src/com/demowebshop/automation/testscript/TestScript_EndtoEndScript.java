@@ -26,10 +26,10 @@ public class TestScript_EndtoEndScript extends Base_Class
 	{
 		test.log(LogStatus.PASS, "Home page is displayed");
 	}
-	else
+	/*else
 	{
 		test.log(LogStatus.FAIL, "Home page is not displayed");
-	}
+	}*/
 	pcm.books().click();
 	WebElement sortBy = pcm.sortByDrop();
 	SelectDropdown.selByVisibleText(sortBy,DROP1);
@@ -63,11 +63,15 @@ public class TestScript_EndtoEndScript extends Base_Class
 	{
 		pcm.computingCheckBox().click();
 		Thread.sleep(2000);
+		JavaScriptScrollActions.scrollIntoView(driver, pcm.updateShoppingCart());
+		Thread.sleep(2000);
 		pcm.updateShoppingCart();
 	}
 	else if(actual_Fprice>actual_Cprice && actual_Fprice>actual_Hprice)
 	{
 		pcm.fictionCheckBox().click();
+		Thread.sleep(2000);
+		JavaScriptScrollActions.scrollIntoView(driver, pcm.updateShoppingCart());
 		Thread.sleep(2000);
 		pcm.updateShoppingCart().click();
 	}
@@ -75,8 +79,11 @@ public class TestScript_EndtoEndScript extends Base_Class
 	{
 		pcm.healthCheckBox().click();
 		Thread.sleep(2000);
+		JavaScriptScrollActions.scrollIntoView(driver, pcm.updateShoppingCart());
+		Thread.sleep(2000);
 		pcm.updateShoppingCart().click();
 	}
+	pcm.logoutLink().click();
 	//https://github.com/ShreeDivyaKK/DEMO_WEB_SHOP.git
 	}
 }

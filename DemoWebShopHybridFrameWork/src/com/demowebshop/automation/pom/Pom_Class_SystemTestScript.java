@@ -50,6 +50,8 @@ public class Pom_Class_SystemTestScript
 	private WebElement computing_checkbox;
 	@FindBy(xpath="//input[@value='Update shopping cart']")
 	private WebElement update_cart;
+	@FindBy(xpath="//a[text()='Log out']")
+	private WebElement logout_link;
 	
 	public Pom_Class_SystemTestScript(WebDriver driver)
 	{
@@ -140,6 +142,10 @@ public class Pom_Class_SystemTestScript
 	public WebElement updateShoppingCart()
 	{
 		return update_cart;
+	}
+	public WebElement logoutLink()
+	{
+		return logout_link;
 	}
 	
 }
